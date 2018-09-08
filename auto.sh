@@ -1,5 +1,7 @@
+# Check for -t option and ensure it has an argument (times)
 while getopts ":t:" opt; do
 	case ${opt} in
+		# Set -t argument to $times
 		t )
 			times=$OPTARG
 		;;
@@ -12,6 +14,7 @@ while getopts ":t:" opt; do
 	esac
 done
 
+# Use regex to check if $times is an integer
 check_if_int ()
 {
 	re='^[0-9]+$'
@@ -20,27 +23,26 @@ check_if_int ()
 	fi
 }
 
-
+# Keep logging those dates
 edit_and_commit ()
 {
 	touch datelog
 	date=`date '+%Y.%m.%d - %H:%M:%S'`
 	echo $date >> datelog
-	cat datelog
+	echo "datelog updated"
 	git status
 	git add .
 	git commit -m "${date} update"
 }
 
+# Do once if no -t flag
 if [ -z "$times" ]; then
-	echo "First"
 	edit_and_commit
+# Or do $times times if $times is an integer
 else
-	echo "Second $times"
 	check_if_int
 	for ((i=1;i<=times;i++)); do
 		edit_and_commit
-		sleep 1
 	done
 fi
 
