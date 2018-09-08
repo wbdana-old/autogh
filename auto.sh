@@ -40,6 +40,7 @@ else
 	check_if_int
 	for i in {1..$times}; do
 		edit_and_commit
+		sleep 1
 	done
 fi
 
