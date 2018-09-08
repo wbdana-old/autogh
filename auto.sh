@@ -31,8 +31,8 @@ edit_and_commit ()
 	echo $date >> datelog
 	echo "datelog updated"
 	git status
-	git add .
-	git commit -m "${date} update"
+	# git add .
+	git commit -am "${date} update"
 }
 
 # Do once if no -t flag
