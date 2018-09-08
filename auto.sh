@@ -43,7 +43,6 @@ else
 	check_if_int
 	for ((i=1;i<=times;i++)); do
 		edit_and_commit
-		sleep 1
 	done
 fi
 
