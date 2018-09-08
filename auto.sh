@@ -33,8 +33,10 @@ edit_and_commit ()
 }
 
 if [ -z "$times" ]; then
+	echo "First"
 	edit_and_commit
 else
+	echo "Second"
 	check_if_int
 	for i in {1..$times}; do
 		edit_and_commit
