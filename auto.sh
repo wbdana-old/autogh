@@ -19,7 +19,7 @@ check_if_int ()
 {
 	re='^[0-9]+$'
 	if ! [[ $times =~ $re ]] ; then
-		echo "Error: -t flag must be supplid with an integer">&2; exit 1
+		echo "Error: -t flag must be supplied with an integer">&2; exit 1
 	fi
 }
 
