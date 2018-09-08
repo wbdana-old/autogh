@@ -47,3 +47,4 @@ fi
 
 git push origin master
 echo "Finished"
+exit 0
